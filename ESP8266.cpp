@@ -48,7 +48,6 @@ bool ESP8266::connectToWiFi(){
             }
         ssid.remove(messageLength - 4);     //comment this if there is no trailing whitespace after string
         messageLength = EEPROM.read(251);
-        Serial.println(messageLength);
           for(int i =0;i<messageLength;i++){
                c = EEPROM.read(400+i);
               pass += c;
@@ -236,8 +235,6 @@ bool ESP8266Client::clientCheckForConnect(){
                 response.remove(pos);
                 this->channelID = response.toInt();    
                 this->recvMode = true;
-                Serial.println("Channel ID:");
-                Serial.println(this->channelID);
                 response = readResponse("z"); //read initial junk/startup data sent by client; replace argument with last byte of incoming data.
                 Serial.println("Client Connected");
                 return true;
