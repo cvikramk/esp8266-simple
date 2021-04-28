@@ -169,7 +169,7 @@ bool ESP8266Server::begin(){
     
 }
 
-bool ESP8266Server::setupTelnetServer(){            //Setting up Telnet server on Piston on port 23
+bool ESP8266Server::setupTelnetServer(){            //Setting up Telnet server on Arduino Mega on port 23
     Serial.println("Setting up server...");
     Serial3.write("AT+CIPMUX=1\r\n");
     response = readResponse("OK");
